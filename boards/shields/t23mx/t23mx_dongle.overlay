@@ -5,3 +5,13 @@
 &kscan {
     status = "disabled";
 };
+
+&default_layout {
+    status = "disabled";
+};
+
+/ {
+    chosen {
+        /delete-property/ zmk,physical-layout;
+    };
+};
