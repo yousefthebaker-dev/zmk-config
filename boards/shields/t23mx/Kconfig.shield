@@ -3,3 +3,6 @@ config SHIELD_T23MX_LEFT
 
 config SHIELD_T23MX_RIGHT
     def_bool $(shields_list_contains,t23mx_right)
+
+config SHIELD_T23MX_DONGLE
+    def_bool $(shields_list_contains,t23mx_dongle)

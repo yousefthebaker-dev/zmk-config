@@ -1,0 +1,7 @@
+// Dongle (central) build: no local key scanning, just act as BLE central + USB.
+
+#include "t23mx.dtsi"
+
+&kscan {
+    status = "disabled";
+};
