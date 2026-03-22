@@ -13,6 +13,20 @@
                         &macro_tap   &kp D
                         &macro_release &kp LGUI>;
         };
+
+        td_space_enter: td_space_enter {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp SPACE>, <&kp ENTER>;
+        };
+
+        td_1_esc: td_1_esc {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp N1>, <&kp ESC>;
+        };
     };
 
     // Define a default keymap here.
@@ -22,11 +36,11 @@
 
         default_layer {
             bindings = <
-                &kp N1   &kp N2   &kp N3   &kp N4   &kp N5    &kp N6   &kp N7   &kp N8   &kp N9   &kp N0
+                &td_1_esc &kp N2   &kp N3   &kp N4   &kp N5    &kp N6   &kp N7   &kp N8   &kp N9   &kp N0
                 &kp Q    &kp W    &kp E    &kp R    &kp T     &kp Y    &kp U    &kp I    &kp O    &kp P
                 &kp A    &kp S    &kp D    &kp F    &kp G     &kp H    &kp J    &kp K    &kp L    &kp SEMI
                 &kp Z    &kp X    &kp C    &kp V    &kp B     &kp N    &kp M    &kp COMMA &kp DOT  &kp FSLH
-                &none &lgui_d &mo 1 &kp LALT &kp LGUI         &kp LSHIFT &kp SPACE &kp BKSP &kp C_MUTE &none
+                &none &lgui_d &mo 1 &kp LALT &kp LGUI         &kp LSHIFT &td_space_enter &kp BKSP &kp C_MUTE &none
             >;
         };
 
