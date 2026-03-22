@@ -6,6 +6,7 @@
     chosen {
         // Use a mock kscan since the dongle has no keys.
         zmk,kscan = &mock_kscan;
+        zmk,physical-layout = &physical_layout0;
     };
 
     mock_kscan: mock_kscan_0 {
@@ -13,6 +14,13 @@
         columns = <0>;
         rows = <0>;
         events = <0>;
+    };
+
+    physical_layout0: physical_layout_0 {
+        compatible = "zmk,physical-layout";
+        display-name = "Dongle Layout";
+        transform = <&default_transform>;
+        kscan = <&mock_kscan>;
     };
 };
 
