@@ -24,3 +24,4 @@ shield:
   - t23mx_left
   - t23mx_right
   - t23mx_dongle
+  - settings_reset
