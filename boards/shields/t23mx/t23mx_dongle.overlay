@@ -27,3 +27,7 @@
 &kscan {
     status = "disabled";
 };
+
+&default_layout {
+    status = "disabled";
+};
