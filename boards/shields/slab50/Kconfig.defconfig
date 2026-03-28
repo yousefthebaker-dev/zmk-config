@@ -1,11 +1,5 @@
 if SHIELD_SLAB50_LEFT
 
-config ZMK_KEYBOARD_NAME
-    default "Slab50"
-
-config ZMK_SPLIT_ROLE_CENTRAL
-    default y
-
 endif # SHIELD_SLAB50_LEFT
 
 if SHIELD_SLAB50_RIGHT
