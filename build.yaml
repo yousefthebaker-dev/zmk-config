@@ -24,6 +24,8 @@ shield:
   - t23mx_left
   - t23mx_right
   - t23mx_dongle
+  - slab50_left
+  - slab50_right
   - settings_reset
 include:
   - board: nice_nano_v2

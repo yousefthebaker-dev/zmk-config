@@ -1,0 +1,12 @@
+#include "slab50.dtsi"
+
+&kscan {
+    col-gpios
+        = <&gpio0 17 GPIO_ACTIVE_HIGH>
+        , <&gpio0 8 GPIO_ACTIVE_HIGH>
+        , <&gpio0 6 GPIO_ACTIVE_HIGH>
+        , <&gpio0 20 GPIO_ACTIVE_HIGH>
+        , <&gpio0 22 GPIO_ACTIVE_HIGH>
+        , <&gpio0 24 GPIO_ACTIVE_HIGH>
+        ;
+};

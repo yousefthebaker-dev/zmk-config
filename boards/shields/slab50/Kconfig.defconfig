@@ -1,0 +1,23 @@
+if SHIELD_SLAB50_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "Slab50"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif # SHIELD_SLAB50_LEFT
+
+if SHIELD_SLAB50_RIGHT
+
+config ZMK_KEYBOARD_NAME
+    default "Slab50"
+
+endif # SHIELD_SLAB50_RIGHT
+
+if SHIELD_SLAB50_LEFT || SHIELD_SLAB50_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif # SHIELD_SLAB50_LEFT || SHIELD_SLAB50_RIGHT

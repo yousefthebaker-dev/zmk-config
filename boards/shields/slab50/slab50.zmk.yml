@@ -1,0 +1,13 @@
+file_format: "1"
+id: slab50
+name: Slab50
+type: shield
+url: https://example.com
+features:
+  - keys
+  - studio
+requires:
+  - nice_nano_v2
+siblings:
+  - slab50_left
+  - slab50_right
