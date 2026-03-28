@@ -6,7 +6,7 @@
 
 &left_encoder {
     status = "okay";
-}
+};
 
 &kscan {
     // Replace these comments with the GPIO pins in the matrix for the left side.
