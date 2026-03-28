@@ -4,6 +4,10 @@
 
 #include "t23mx.dtsi"
 
+&right_encoder {
+    status = "okay";
+}
+
 &default_transform {
     // Set this to the number of columns on the left side.
     col-offset = <5>;
