@@ -3,6 +3,9 @@ if SHIELD_T23MX_LEFT
 config ZMK_KEYBOARD_NAME
     default "Torus23MX"
 
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
 endif # SHIELD_T23MX_LEFT
 
 if SHIELD_T23MX_RIGHT
@@ -16,9 +19,6 @@ if SHIELD_T23MX_DONGLE
 
 config ZMK_KEYBOARD_NAME
     default "Torus23MX"
-
-config ZMK_SPLIT_ROLE_CENTRAL
-    default y
 
 endif # SHIELD_T23MX_DONGLE
 
