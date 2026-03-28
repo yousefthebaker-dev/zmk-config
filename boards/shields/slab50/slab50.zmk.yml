@@ -11,3 +11,4 @@ requires:
 siblings:
   - slab50_left
   - slab50_right
+  - slab50_dongle
