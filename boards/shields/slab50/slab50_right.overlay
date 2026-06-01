@@ -5,26 +5,24 @@
 };
 
 &kscan {
-    /* Right-half mirrored pinout with MCU installed on user-facing (top) side:
-     * row0=P14, row1=P5, row2=P4, row3=P3, row4=P2.
+    /* Right-half raw pinout: MCU installed on front of footprint, no mirroring needed.
+     * row0=P7, row1=P18, row2=P19, row3=P20, row4=P21.
      */
     row-gpios
-        = <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-        , <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-        , <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-        , <&gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-        , <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        = <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
         ;
 
-    /* col0=P6 (inner), col1=P7, col2=P8, col3=P9, col4=P1, col5=P21 (outer).
-     * This is the exact reverse of the left-half mirrored columns.
-     */
+    /* col0=P15 (inner), col1=P14, col2=P16, col3=P10, col4=P1, col5=P2 (outer). */
     col-gpios
-        = <&gpio1 0 GPIO_ACTIVE_HIGH>
-        , <&gpio0 11 GPIO_ACTIVE_HIGH>
-        , <&gpio1 4 GPIO_ACTIVE_HIGH>
-        , <&gpio1 6 GPIO_ACTIVE_HIGH>
+        = <&gpio1 13 GPIO_ACTIVE_HIGH>
+        , <&gpio1 11 GPIO_ACTIVE_HIGH>
+        , <&gpio0 10 GPIO_ACTIVE_HIGH>
+        , <&gpio0 9 GPIO_ACTIVE_HIGH>
         , <&gpio0 6 GPIO_ACTIVE_HIGH>
-        , <&gpio0 31 GPIO_ACTIVE_HIGH>
+        , <&gpio0 17 GPIO_ACTIVE_HIGH>
         ;
 };
