@@ -1,0 +1,116 @@
+/*
+ * DIAGNOSTIC keymap for slab50_right_diag.
+ *
+ * Every key in the 5-row × 6-col right-half matrix types a unique
+ * two-character code so you can identify exactly which GPIO pair
+ * each physical switch is connected to.
+ *
+ * Decode table:
+ *   Output  | RC position | Row GPIO      | Col GPIO
+ *   --------|-------------|---------------|----------
+ *   r0c0    | RC(0,6)     | gpio0 11 (P7) | gpio1 13 (P15)
+ *   r0c1    | RC(0,7)     | gpio0 11 (P7) | gpio1 11 (P14)
+ *   r0c2    | RC(0,8)     | gpio0 11 (P7) | gpio0 10 (P16)
+ *   r0c3    | RC(0,9)     | gpio0 11 (P7) | gpio0  9 (P10)
+ *   r0c4    | RC(0,10)    | gpio0 11 (P7) | gpio0  6 (P1)
+ *   r0c5    | RC(0,11)    | gpio0 11 (P7) | gpio0 17 (P2)
+ *   r1c0    | RC(1,6)     | gpio1 15 (P18)| gpio1 13 (P15)
+ *   r1c1    | RC(1,7)     | gpio1 15 (P18)| gpio1 11 (P14)
+ *   r1c2    | RC(1,8)     | gpio1 15 (P18)| gpio0 10 (P16)
+ *   r1c3    | RC(1,9)     | gpio1 15 (P18)| gpio0  9 (P10)
+ *   r1c4    | RC(1,10)    | gpio1 15 (P18)| gpio0  6 (P1)
+ *   r1c5    | RC(1,11)    | gpio1 15 (P18)| gpio0 17 (P2)
+ *   r2c0    | RC(2,6)     | gpio0  2 (P19)| gpio1 13 (P15)
+ *   r2c1    | RC(2,7)     | gpio0  2 (P19)| gpio1 11 (P14)
+ *   r2c2    | RC(2,8)     | gpio0  2 (P19)| gpio0 10 (P16)
+ *   r2c3    | RC(2,9)     | gpio0  2 (P19)| gpio0  9 (P10)
+ *   r2c4    | RC(2,10)    | gpio0  2 (P19)| gpio0  6 (P1)
+ *   r2c5    | RC(2,11)    | gpio0  2 (P19)| gpio0 17 (P2)
+ *   r3c0    | RC(3,6)     | gpio0 29 (P20)| gpio1 13 (P15)
+ *   r3c1    | RC(3,7)     | gpio0 29 (P20)| gpio1 11 (P14)
+ *   r3c2    | RC(3,8)     | gpio0 29 (P20)| gpio0 10 (P16)
+ *   r3c3    | RC(3,9)     | gpio0 29 (P20)| gpio0  9 (P10)
+ *   r3c4    | RC(3,10)    | gpio0 29 (P20)| gpio0  6 (P1)
+ *   r3c5    | RC(3,11)    | gpio0 29 (P20)| gpio0 17 (P2)
+ *   r4c0    | RC(4,6)     | gpio0 31 (P21)| gpio1 13 (P15)
+ *   r4c1    | RC(4,7)     | gpio0 31 (P21)| gpio1 11 (P14)
+ *   r4c2    | RC(4,8)     | gpio0 31 (P21)| gpio0 10 (P16)
+ *   r4c3    | RC(4,9)     | gpio0 31 (P21)| gpio0  9 (P10)
+ *   r4c4    | RC(4,10)    | gpio0 31 (P21)| gpio0  6 (P1)
+ *   r4c5    | RC(4,11)    | gpio0 31 (P21)| gpio0 17 (P2)
+ *
+ * The LEFT side of the matrix (col 0-5) is bound to &none so it
+ * doesn't interfere. Only the right half is under test here.
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
+/ {
+    macros {
+        /* ── Row 0 ──────────────────────────────────────────────────── */
+        m_r0c0: m_r0c0 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N0 &kp C &kp N0>; };
+        m_r0c1: m_r0c1 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N0 &kp C &kp N1>; };
+        m_r0c2: m_r0c2 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N0 &kp C &kp N2>; };
+        m_r0c3: m_r0c3 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N0 &kp C &kp N3>; };
+        m_r0c4: m_r0c4 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N0 &kp C &kp N4>; };
+        m_r0c5: m_r0c5 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N0 &kp C &kp N5>; };
+
+        /* ── Row 1 ──────────────────────────────────────────────────── */
+        m_r1c0: m_r1c0 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N1 &kp C &kp N0>; };
+        m_r1c1: m_r1c1 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N1 &kp C &kp N1>; };
+        m_r1c2: m_r1c2 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N1 &kp C &kp N2>; };
+        m_r1c3: m_r1c3 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N1 &kp C &kp N3>; };
+        m_r1c4: m_r1c4 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N1 &kp C &kp N4>; };
+        m_r1c5: m_r1c5 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N1 &kp C &kp N5>; };
+
+        /* ── Row 2 ──────────────────────────────────────────────────── */
+        m_r2c0: m_r2c0 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N2 &kp C &kp N0>; };
+        m_r2c1: m_r2c1 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N2 &kp C &kp N1>; };
+        m_r2c2: m_r2c2 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N2 &kp C &kp N2>; };
+        m_r2c3: m_r2c3 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N2 &kp C &kp N3>; };
+        m_r2c4: m_r2c4 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N2 &kp C &kp N4>; };
+        m_r2c5: m_r2c5 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N2 &kp C &kp N5>; };
+
+        /* ── Row 3 ──────────────────────────────────────────────────── */
+        m_r3c0: m_r3c0 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N3 &kp C &kp N0>; };
+        m_r3c1: m_r3c1 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N3 &kp C &kp N1>; };
+        m_r3c2: m_r3c2 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N3 &kp C &kp N2>; };
+        m_r3c3: m_r3c3 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N3 &kp C &kp N3>; };
+        m_r3c4: m_r3c4 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N3 &kp C &kp N4>; };
+        m_r3c5: m_r3c5 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N3 &kp C &kp N5>; };
+
+        /* ── Row 4 ──────────────────────────────────────────────────── */
+        m_r4c0: m_r4c0 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N4 &kp C &kp N0>; };
+        m_r4c1: m_r4c1 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N4 &kp C &kp N1>; };
+        m_r4c2: m_r4c2 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N4 &kp C &kp N2>; };
+        m_r4c3: m_r4c3 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N4 &kp C &kp N3>; };
+        m_r4c4: m_r4c4 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N4 &kp C &kp N4>; };
+        m_r4c5: m_r4c5 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp R &kp N4 &kp C &kp N5>; };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            bindings = <
+                /* LEFT half — not under test, all silent */
+                &none &none &none &none &none &none
+                /* RIGHT half — each key types rXcY */
+                &m_r0c0 &m_r0c1 &m_r0c2 &m_r0c3 &m_r0c4 &m_r0c5
+
+                &none &none &none &none &none &none
+                &m_r1c0 &m_r1c1 &m_r1c2 &m_r1c3 &m_r1c4 &m_r1c5
+
+                &none &none &none &none &none &none
+                &m_r2c0 &m_r2c1 &m_r2c2 &m_r2c3 &m_r2c4 &m_r2c5
+
+                &none &none &none &none &none &none
+                &m_r3c0 &m_r3c1 &m_r3c2 &m_r3c3 &m_r3c4 &m_r3c5
+
+                &none &none &none &none &none &none
+                &m_r4c0 &m_r4c1 &m_r4c2 &m_r4c3 &m_r4c4 &m_r4c5
+            >;
+        };
+    };
+};

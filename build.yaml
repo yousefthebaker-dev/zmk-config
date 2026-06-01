@@ -25,6 +25,7 @@ shield:
   - t23mx_right
   - slab50_left
   - slab50_right
+  - slab50_right_diag
   - slab50_dongle
   - settings_reset
 include:

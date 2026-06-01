@@ -1,0 +1,9 @@
+if SHIELD_SLAB50_RIGHT_DIAG
+
+config ZMK_KEYBOARD_NAME
+    default "Slab50-Diag"
+
+config ZMK_SPLIT
+    default y
+
+endif # SHIELD_SLAB50_RIGHT_DIAG

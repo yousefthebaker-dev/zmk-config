@@ -1,0 +1,59 @@
+/*
+ * DIAGNOSTIC overlay for slab50_right.
+ *
+ * HOW TO USE:
+ *   1. Flash this firmware to the right half.
+ *   2. Open a text editor on your PC.
+ *   3. Press each physical key — it will type a code like "r1c3".
+ *   4. Report back the code. We can then look up exactly which
+ *      GPIO row + GPIO col was shorted by that switch.
+ *
+ * Presses each physical switch and reads the four-char code it types:
+ *   rXcY  →  row X (0-indexed), col Y (0-indexed)
+ *
+ * Row GPIO table (raw pinout from Ergogen config.yaml):
+ *   row0 = P7  = gpio0 11
+ *   row1 = P18 = gpio1 15
+ *   row2 = P19 = gpio0 2
+ *   row3 = P20 = gpio0 29
+ *   row4 = P21 = gpio0 31
+ *
+ * Col GPIO table:
+ *   col0 = P15 = gpio1 13   (inner)
+ *   col1 = P14 = gpio1 11   (index)
+ *   col2 = P16 = gpio0 10   (middle)
+ *   col3 = P10 = gpio0 9    (ring)
+ *   col4 = P1  = gpio0 6    (pinky)
+ *   col5 = P2  = gpio0 17   (outer)
+ *
+ * If a key produces NO output, that switch's GPIO pair is not being
+ * detected — the GPIO address for that row or col is wrong.
+ */
+
+#include "slab50.dtsi"
+
+&default_transform {
+    col-offset = <6>;
+};
+
+&kscan {
+    /* Raw right-half pinout — matches Ergogen config.yaml exactly */
+    row-gpios
+        = <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* row0 = P7  */
+        , <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* row1 = P18 */
+        , <&gpio0  2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* row2 = P19 */
+        , <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* row3 = P20 */
+        , <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* row4 = P21 */
+        ;
+
+    col-gpios
+        = <&gpio1 13 GPIO_ACTIVE_HIGH>   /* col0 = P15 */
+        , <&gpio1 11 GPIO_ACTIVE_HIGH>   /* col1 = P14 */
+        , <&gpio0 10 GPIO_ACTIVE_HIGH>   /* col2 = P16 */
+        , <&gpio0  9 GPIO_ACTIVE_HIGH>   /* col3 = P10 */
+        , <&gpio0  6 GPIO_ACTIVE_HIGH>   /* col4 = P1  */
+        , <&gpio0 17 GPIO_ACTIVE_HIGH>   /* col5 = P2  */
+        ;
+};
+
+#include "slab50_diag.keymap"
